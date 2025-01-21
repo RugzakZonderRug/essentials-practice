@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 vite.config.js
+.codesandbox
 
 # Editor directories and files
 .vscode/*
