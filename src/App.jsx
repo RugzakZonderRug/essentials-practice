@@ -17,15 +17,18 @@ function App() {
   const [investmentInput, setInvestmentInput] = useState(
     defaultInvestmentInputs
   );
+  const [investmentResults, setInvestmentResults] = useState(
+    calculateInvestmentResults(investmentInput)
+  );
 
   function handleInputChange(event, inputID) {
     let newVar = Number(event.target.value);
 
     setInvestmentInput((prevData) => {
       const updatedData = { ...prevData, [inputID]: newVar };
-      const investmentResults = calculateInvestmentResults(updatedData);
+      const updatedResults = calculateInvestmentResults(updatedData);
 
-      // Add logic to activate rerender of table
+      setInvestmentResults(updatedResults);
 
       return updatedData;
     });
@@ -64,7 +67,7 @@ function App() {
           />
         </div>
       </div>
-      <Table />
+      <Table investmentResults={investmentResults} />
     </>
   );
 }
