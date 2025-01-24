@@ -14,21 +14,13 @@ const defaultInvestmentInputs = {
 };
 
 function App() {
-  const [investmentInput, setInvestmentInput] = useState(
-    defaultInvestmentInputs
-  );
-  const [investmentResults, setInvestmentResults] = useState(
-    calculateInvestmentResults(investmentInput)
-  );
+  const [investmentInput, setInvestmentInput] = useState(defaultInvestmentInputs);
 
   function handleInputChange(event, inputID) {
     let updatedValue = Number(event.target.value);
 
     setInvestmentInput((prevData) => {
       const updatedData = { ...prevData, [inputID]: updatedValue };
-      const updatedResults = calculateInvestmentResults(updatedData);
-
-      setInvestmentResults(updatedResults);
 
       return updatedData;
     });
@@ -67,7 +59,7 @@ function App() {
           />
         </div>
       </div>
-      <Table investmentResults={investmentResults} />
+      <Table investmentResults={calculateInvestmentResults(investmentInput)} />
     </>
   );
 }
