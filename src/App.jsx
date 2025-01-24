@@ -22,10 +22,10 @@ function App() {
   );
 
   function handleInputChange(event, inputID) {
-    let newVar = Number(event.target.value);
+    let updatedValue = Number(event.target.value);
 
     setInvestmentInput((prevData) => {
-      const updatedData = { ...prevData, [inputID]: newVar };
+      const updatedData = { ...prevData, [inputID]: updatedValue };
       const updatedResults = calculateInvestmentResults(updatedData);
 
       setInvestmentResults(updatedResults);

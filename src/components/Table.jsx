@@ -15,7 +15,7 @@ export default function Table({ investmentResults }) {
       <tbody>
         {investmentResults.map(
           ({ year, interest, valueEndOfYear, investedCapital }, index) => (
-            <tr key={index}>
+            <tr key={year}>
               <td>{year}</td>
               <td>{formatter.format(valueEndOfYear)}</td>
               <td>{formatter.format(interest)}</td>
